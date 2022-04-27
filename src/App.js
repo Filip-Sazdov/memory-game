@@ -29,13 +29,15 @@ function App() {
       .map(card => ({ ...card, id: Math.random() }))
 
     setCards(shuffledCards)
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setTurns(0)
   }
 
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
-  // compare choices
+  // compare choices, prevent excess cards be chose, modify array items to matched: true to apply CSS, and then reset choices.
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true)
@@ -65,6 +67,11 @@ function App() {
     setTurns(turns => turns + 1)
     setDisabled(false)
   }
+  // start game automatically
+  useEffect(() => {
+    shuffleCards()
+  }, [])
+
 
   return (
     <div className="App">

@@ -49,13 +49,13 @@ function App() {
         })
         resetChoices()
       } else {
-        console.log('Your choices do not match, please try again.')
-        resetChoices()
+        setTimeout(() => {
+          resetChoices()
+        }, 1000);
+
       }
     }
   }, [choiceOne, choiceTwo, turns])
-
-  console.log(cards)
 
   const resetChoices = () => {
     setChoiceOne(null)
@@ -72,7 +72,8 @@ function App() {
           <SingleCard
             card={card}
             key={card.id}
-            handleChoice={handleChoice} />
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched} />
         ))}
       </div>
     </div>

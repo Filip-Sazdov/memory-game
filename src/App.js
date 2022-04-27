@@ -4,12 +4,12 @@ import './App.css';
 import SingleCard from './components/SingleCard'
 
 const cardImages = [ //created outside of component since they never need to change and to avoid array recreation every time the component is re-evaluated
-  { 'src': '/img/helmet-1.png' },
-  { 'src': '/img/potion-1.png' },
-  { 'src': '/img/ring-1.png' },
-  { 'src': '/img/scroll-1.png' },
-  { 'src': '/img/shield-1.png' },
-  { 'src': '/img/sword-1.png' }
+  { 'src': '/img/helmet-1.png', matched: false },
+  { 'src': '/img/potion-1.png', matched: false },
+  { 'src': '/img/ring-1.png', matched: false },
+  { 'src': '/img/scroll-1.png', matched: false },
+  { 'src': '/img/shield-1.png', matched: false },
+  { 'src': '/img/sword-1.png', matched: false }
 ]
 
 function App() {
